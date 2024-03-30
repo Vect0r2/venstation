@@ -389,3 +389,11 @@
 		It is also able to be suppressed....somehow. This one seems to have a little picture of someone in a blood-red MODsuit stenciled on it, pointing at a green floppy disk. \
 		Who knows what that might mean."
 	pin = /obj/item/firing_pin/implant/pindicate
+
+/obj/item/gun/ballistic/rifle/molten_cannon
+	name = "Molten Cannon"
+	desc = "A cannon that shoots globs of fire that are infused in it's reaction chamber to explode into a fireball on impact."
+	weapon_weight = WEIGHT_CLASS_NORMAL
+	internal_magazine = CALIBER_MOLT
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/molten_glob
+

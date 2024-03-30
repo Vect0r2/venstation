@@ -75,3 +75,34 @@
 	embedding = list(embed_chance=80, fall_chance=1, jostle_chance=3, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.4, pain_mult=3, jostle_pain_mult=2, rip_time=14)
 	embed_falloff_tile = -3
 	shrapnel_type = /obj/item/stack/rods
+
+/obj/projectile/bullet/molten_glob
+	name = "rebar"
+	icon_state = "rebar"
+	damage = 15
+	speed = 4
+	shrapnel_type = /obj/item/burning_mass
+	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
+
+/obj/projectile/bullet/molten_glob/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/carbon_victim = target
+		carbon_victim.adjust_fire_stacks(10)
+		carbon_victim.ignite_mob()
+
+/obj/item/burning_mass
+	name = "burning mass"
+	desc = "You wouldn't want to see this inside you!"
+	icon = 'icons/obj/science/vatgrowing.dmi'
+	icon_state = "globule"
+	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
+	var/mob/living/carbon/human/victim
+
+/obj/item/mending_globule/embedded(mob/living/carbon/human/embedded_mob, obj/item/bodypart/part)
+	. = ..()
+	victim = embedded_mob
+
+/obj/item/burning_mass/process()
+	victim.adjust_fire_stacks(10)
+	victim.ignite_mob()

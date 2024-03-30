@@ -73,3 +73,11 @@
 	icon_state = "rod_jagged"
 	base_icon_state = "rod_jagged"
 	projectile_type = /obj/projectile/bullet/rebarsyndie
+
+/obj/item/ammo_casing/molten_glob
+	name = "Molten glob"
+	desc = "A red hot glob of plasma. You can't hold on to it for too long before it starts to burn."
+	caliber = CALIBER_MOLT
+	icon_state =  "rshell"
+	base_icon_state = "rshell"
+	projectile_type = /obj/projectile/bullet/molten_glob

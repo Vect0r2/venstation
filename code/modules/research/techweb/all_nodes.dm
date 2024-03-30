@@ -1708,6 +1708,7 @@
 		"adv_grenade",
 		"large_grenade",
 		"pyro_grenade",
+		"molten_cannon"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 

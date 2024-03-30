@@ -150,6 +150,15 @@
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
 
+/datum/crafting_recipe/molten_cannon
+	name = "Molten Cannon"
+	result = /obj/item/gun/ballistic/rifle/molten_cannon
+	reqs = list(
+		/obj/item/gun/ballistic/shotgun = 1,
+		/obj/item/weaponcrafting/gunkit/molten_cannon = 1,
+		/obj/item/assembly/signaler/anomaly/pyro = 1,
+	)
+
 /datum/crafting_recipe/improvised_pneumatic_cannon //Pretty easy to obtain but
 	name = "Pneumatic Cannon"
 	result = /obj/item/pneumatic_cannon/ghetto

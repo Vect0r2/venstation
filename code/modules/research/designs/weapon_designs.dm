@@ -316,6 +316,20 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
+/datum/design/molten_cannon
+	name = "Molten Cannon"
+	desc = "A cannon that shoots pure lava at targets, retrofitted onto a shotgun. \
+	Requires a pyroclastic anomaly core to function."
+	id = "molten_cannon"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT*2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT*1.5)
+	build_path = /obj/item/weaponcrafting/gunkit/molten_cannon
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_KITS
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+	autolathe_exportable = FALSE
+
 /datum/design/xray
 	name = "X-ray Laser Gun Part Kit (Lethal)"
 	desc = "Not quite as menacing as it sounds"

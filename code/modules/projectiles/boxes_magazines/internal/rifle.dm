@@ -49,3 +49,9 @@
 /obj/item/ammo_box/magazine/internal/boltaction/rebarxbow/syndie/normal
 	caliber = CALIBER_REBAR_SYNDIE_NORMAL
 	ammo_type = /obj/item/ammo_casing/rebar
+
+/obj/item/ammo_box/magazine/internal/boltaction/molten_glob
+	name = "pipegun internal magazine"
+	caliber = CALIBER_MOLT
+	ammo_type = /obj/item/ammo_casing/molten_glob
+	max_ammo = 1
