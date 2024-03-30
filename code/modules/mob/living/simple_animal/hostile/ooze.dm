@@ -394,7 +394,7 @@
 
 /obj/item/mending_globule/embedded(mob/living/carbon/human/embedded_mob, obj/item/bodypart/part)
 	. = ..()
-	if(!istype(part))
+	if(!istype(embedded_mob))
 		return
 	bodypart = part
 	START_PROCESSING(SSobj, src)

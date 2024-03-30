@@ -94,15 +94,19 @@
 /obj/item/burning_mass
 	name = "burning mass"
 	desc = "You wouldn't want to see this inside you!"
-	icon = 'icons/obj/science/vatgrowing.dmi'
-	icon_state = "globule"
+	icon = 'icons/obj/science/vatgrowing.dmi' //WIP
+	icon_state = "globule" //WIP
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
-	var/mob/living/carbon/human/victim
 
-/obj/item/mending_globule/embedded(mob/living/carbon/human/embedded_mob, obj/item/bodypart/part)
+	var/mob/living/carbon/human/victim
+	victim = null
+
+/obj/item/burning_mass/embedded(mob/living/carbon/human/embedded_mob, obj/item/bodypart/part)
 	. = ..()
 	victim = embedded_mob
+	START_PROCESSING(SSobj, src)
 
 /obj/item/burning_mass/process()
-	victim.adjust_fire_stacks(10)
+	victim.adjust_fire_stacks(3)
 	victim.ignite_mob()
+
