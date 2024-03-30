@@ -107,11 +107,13 @@
 	victim = embedded_mob
 	START_PROCESSING(SSobj, src)
 
-/obj/item/burning_mass/process()
-	if( rand(1, 6) == 1)
+/obj/item/burning_mass/process(seconds_per_tick)
+	if(SPT_PROB(10, seconds_per_tick))
+
 		victim.adjust_fire_stacks(3)
 		victim.ignite_mob()
 		burns_left--
+		victim.visible_message(span_admin("The burning mass inside [victim] ignites!"))
 	if( burns_left == 0)
 		qdel(src)
 /obj/item/burning_mass/unembedded()
