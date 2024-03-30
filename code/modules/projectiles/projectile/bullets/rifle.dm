@@ -99,6 +99,7 @@
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0.5)
 
 	var/mob/living/carbon/human/victim
+	var/burns_left = 5
 	victim = null
 
 /obj/item/burning_mass/embedded(mob/living/carbon/human/embedded_mob, obj/item/bodypart/part)
@@ -107,6 +108,13 @@
 	START_PROCESSING(SSobj, src)
 
 /obj/item/burning_mass/process()
-	victim.adjust_fire_stacks(3)
-	victim.ignite_mob()
-
+	if( rand(1, 6) == 1)
+		victim.adjust_fire_stacks(3)
+		victim.ignite_mob()
+		burns_left--
+	if( burns_left == 0)
+		qdel(src)
+/obj/item/burning_mass/unembedded()
+	. = ..()
+	victim = null
+	STOP_PROCESSING(SSobj, src)
