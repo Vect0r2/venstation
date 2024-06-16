@@ -603,3 +603,38 @@
 /obj/item/mod/module/quick_cuff/on_suit_deactivation(deleting = FALSE)
 	. = ..()
 	REMOVE_TRAIT(mod.wearer, TRAIT_FAST_CUFFING, MOD_TRAIT)
+
+
+/obj/item/mod/module/exocannon
+	name = "funni cannon"
+	desc = "directly ammo fed from the modsuit itself- this device is meant for ultimite fire control"
+	removable = FALSE
+	complexity = 0
+	required_slots = list(ITEM_SLOT_GLOVES)
+	icon_state = "injector"
+	module_type = MODULE_ACTIVE
+	complexity = 1
+	active_power_cost = DEFAULT_CHARGE_DRAIN * 1
+	device = /obj/item/gun/ballistic/automatic/exocannon
+	incompatible_modules = list(/obj/item/mod/module/exocannon)
+	cooldown_time = 0.5 SECONDS
+	required_slots = list(ITEM_SLOT_GLOVES)
+
+/obj/item/gun/ballistic/automatic/exocannon
+	name = "ASSAULT CANNON"
+	desc = "BOOM BOOM MOTHERFUCKER"
+	icon_state = "wt550"
+	w_class = WEIGHT_CLASS_HUGE
+	inhand_icon_state = "arg"
+	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
+	fire_delay = 2
+	can_suppress = FALSE
+	burst_size = 1
+	actions_types = list()
+	can_bayonet = TRUE
+	knife_x_offset = 25
+	knife_y_offset = 12
+	mag_display = TRUE
+	mag_display_ammo = TRUE
+	empty_indicator = TRUE
+
